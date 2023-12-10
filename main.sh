@@ -17,22 +17,22 @@ packages="libxcb xcb-util xcb-util-wm xcb-util-keysyms gdm xorg xorg-xinit polyb
 
 # Create System Users
 
-useradd -m system
-useradd -m user
-useradd -m guest
+sudo useradd -m system
+sudo useradd -m user
+sudo useradd -m guest
 
 # Create System Groups
 
-groupadd administration
-groupadd users
-groupadd guests
+sudo groupadd system_admins
+sudo groupadd system_users
+sudo groupadd system_guests
 
 # Assign Users
 
-usermod -aG administration system
-usermod -aG wheel system
-usermod -aG users user
-usermod -aG guests guest
+sudo usermod -aG system_admins system
+sudo usermod -aG wheel system
+sudo usermod -aG system_users user
+sudo usermod -aG system_guests guest
 
 # Install basic packages
 
