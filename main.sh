@@ -21,8 +21,6 @@ network_mask=$(ip -br a | grep UP | sed "s/  */ /g" | head -1 | cut -d " " -f 3 
 
 # Other Variables
 
-packages="libxcb xcb-util xcb-util-wm xcb-util-keysyms gdm xorg xorg-xinit polybar gnome-terminal rofi feh tmux brave open-vm-tools net-tools base-devel"
-
 # Create System Users
 
 sudo useradd -m system
@@ -45,7 +43,7 @@ sudo usermod -aG system_guests guest
 # Install basic packages
 
 sudo pacman -Syu
-sudo pacman -S $packages --noconfirm
+sudo pacman -S libxcb xcb-util xcb-util-wm xcb-util-keysyms gdm xorg xorg-xinit polybar gnome-terminal rofi feh tmux brave open-vm-tools net-tools base-devel --noconfirm
 
 # Install Yay
 
