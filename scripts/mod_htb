@@ -1,0 +1,10 @@
+#!/bin/bash
+
+status=$(ip -br a | grep $1 | cut -d " " -f 1)
+
+if [[ $status = "$1" ]]; then
+    ip=$(ifconfig $1 | grep inet | head -1 |  sed "s/  */ /g" | cut -d " " -f 3)
+    echo -e "%{F#0f0} 󰆦 %{F#fff} $ip %{F-}"
+else
+    echo -e "%{F#f00} 󱐜 %{F-}"
+fi

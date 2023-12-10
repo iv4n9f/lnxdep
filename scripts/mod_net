@@ -1,0 +1,10 @@
+#!/bin/bash
+
+status=$(curl -s ifconfig.me)
+
+if [[ $status = "" ]]; then
+    echo -e "%{F#f00} 󰊯 %{F-}"
+else
+    time=$(ping google.com -c 1 | grep time | head -1 | cut -d " " -f 8 | cut -d "=" -f 2)
+    echo -e "%{F#0f0} 󰊯 %{F#fff}$time ms%{F-}"
+fi

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+status=$(curl -s ifconfig.me)
+
+if [[ $status = "" ]]; then
+    echo -e "%{F#f00}  %{F-}"
+else
+    ip=$(curl -s ifconfig.me)
+    echo -e "%{F#0f0}  %{F#fff}$ip %{F-}"
+fi
