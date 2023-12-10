@@ -85,12 +85,13 @@ sudo rm -r bspwm fonts rofi-themes-collection sxhkd lnxdep yay
 
 mkdir -p {doc,psw,tmp,dwn,log,msc,sft,rep}
 
-# Install Snapd
+# Install packages from yay
 
 yay -Y --gendb
 yay -Syu
 yay -Syu --devel
 yay -S snapd
+yay -S bitwarden
 
 # Enable Services
 
@@ -103,5 +104,4 @@ sudo ln -s /var/lib/snapd/snap /snap
 
 sudo snap install --classic code
 sudo ln -s /snap/bin/code /bin/code
-sudo snap install bitwarden
 sudo snap install discord
