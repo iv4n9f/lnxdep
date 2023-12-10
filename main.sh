@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Check user
+
+user=$(whoami)
+
+if [[ $user == "root" ]]; then
+    exit
+fi
+
 # Location
 
 dir=$(pwd)
