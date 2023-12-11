@@ -43,7 +43,7 @@ sudo usermod -aG system_guests guest
 # Install basic packages
 
 sudo pacman -Syu
-sudo pacman -S libxcb xcb-util xcb-util-wm xcb-util-keysyms gdm xorg xorg-xinit polybar kitty rofi feh tmux net-tools base-devel zsh neofetch --noconfirm
+sudo pacman -S libxcb xcb-util xcb-util-wm xcb-util-keysyms gdm xorg xorg-xinit polybar kitty rofi feh tmux net-tools base-devel zsh neofetch open-vm-tools --noconfirm
 
 # Install Yay
 
@@ -97,13 +97,7 @@ sudo usermod -s $(which zsh) system
 cp $dir/zshrc ~/.zshrc
 cp $dir/p10k.zsh ~/.p10k.zsh
 
-# Install vmware-tools
 
-cd ~
-git clone https://github.com/rasa/vmware-tools-patches.git
-cd vmware-tools-patches
-sudo ./patched-open-vm-tools.sh
-cd ~
 
 # Deploy main directory
 
@@ -125,6 +119,16 @@ sudo systemctl enable snapd && sudo systemctl start snapd
 sudo systemctl enable gdm
 sudo systemctl enable vmtoolsd.service
 sudo ln -s /var/lib/snapd/snap /snap
+
+# Install vmware-tools
+
+cd ~
+git clone https://github.com/rasa/vmware-tools-patches.git
+cd vmware-tools-patches
+sudo ./patched-open-vm-tools.sh
+cd ..
+sudo rm -r vmware-tools-patches
+cd ~
 
 # Install Snaps
 
