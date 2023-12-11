@@ -43,7 +43,7 @@ sudo usermod -aG system_guests guest
 # Install basic packages
 
 sudo pacman -Syu
-sudo pacman -S libxcb xcb-util xcb-util-wm xcb-util-keysyms gdm xorg xorg-xinit polybar gnome-terminal rofi feh tmux brave open-vm-tools net-tools base-devel --noconfirm
+sudo pacman -S libxcb xcb-util xcb-util-wm xcb-util-keysyms gdm xorg xorg-xinit polybar gnome-terminal rofi feh tmux brave-browser open-vm-tools net-tools base-devel --noconfirm
 
 # Install Yay
 
