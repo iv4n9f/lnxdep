@@ -1,6 +1,6 @@
 # terminal emulator
 super + Return
-	gnome-terminal
+	kitty
 
 # program launcher
 super + d

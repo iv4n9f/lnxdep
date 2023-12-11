@@ -43,7 +43,7 @@ sudo usermod -aG system_guests guest
 # Install basic packages
 
 sudo pacman -Syu
-sudo pacman -S libxcb xcb-util xcb-util-wm xcb-util-keysyms gdm xorg xorg-xinit polybar gnome-terminal rofi feh tmux open-vm-tools net-tools base-devel zsh --noconfirm
+sudo pacman -S libxcb xcb-util xcb-util-wm xcb-util-keysyms gdm xorg xorg-xinit polybar kitty rofi feh tmux open-vm-tools net-tools base-devel zsh neofetch --noconfirm
 
 # Install Yay
 
@@ -55,7 +55,7 @@ git clone https://github.com/baskerville/bspwm.git
 git clone https://github.com/baskerville/sxhkd.git
 cd bspwm && make && sudo make install
 cd ../sxhkd && make && sudo make install
-mkdir -p ~/.config/{bspwm,sxhkd,polybar}
+mkdir -p ~/.config/{bspwm,sxhkd,polybar,kitty}
 mkdir ~/.config/bspwm/scripts
 mkdir ~/pic 
 cp $dir/bspwmrc ~/.config/bspwm/
@@ -65,6 +65,7 @@ cp $dir/launch.sh ~/.config/polybar/
 cp $dir/config.ini ~/.config/polybar/
 cp $dir/wallpaper.jpg ~/pic/wallpaper.jpg
 cp $dir/wallpaper.jpg
+cp $dir/kitty.conf ~/.config/kitty/
 cp /etc/X11/xinit/xinitrc ~/.xinitrc
 echo "exec bspwm" >> ~/.xinitrc
 chmod u+x ~/.config/bspwm/bspwmrc
