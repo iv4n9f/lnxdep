@@ -85,25 +85,21 @@ cp *.ttf ~/.local/share/fonts/.
 cp -r $dir/scripts ~/.config/polybar/
 chmod u+x ~/.config/polybar/scripts/*
 cd ~
-sudo rm -r bspwm fonts rofi-themes-collection sxhkd lnxdep yay
+
 
 # Install powerlevel10k
 
 yay -S --noconfirm zsh-theme-powerlevel10k-git
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
-echo 'source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
-cp $dir/zshrc ~/.zshrc
-echo 'source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh' >> ~/.zshrc
-echo 'source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh' >> ~/.zshrc
-cp $dir/p10k.zsh ~/.p10k.zsh
 sudo usermod -s $(which zsh) system
-
-
+cp $dir/zshrc ~/.zshrc
+cp $dir/p10k.zsh ~/.p10k.zsh
 
 
 # Deploy main directory
 
+sudo rm -r bspwm fonts rofi-themes-collection sxhkd lnxdep yay
 mkdir -p {doc,psw,tmp,dwn,log,msc,sft,rep}
 
 # Install packages from yay
