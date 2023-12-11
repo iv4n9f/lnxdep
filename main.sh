@@ -47,7 +47,7 @@ sudo pacman -S libxcb xcb-util xcb-util-wm xcb-util-keysyms gdm xorg xorg-xinit 
 
 # Install Yay
 
-git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si --noconfirm
 
 #Install bspwm
 
