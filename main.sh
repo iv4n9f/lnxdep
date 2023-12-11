@@ -43,7 +43,7 @@ sudo usermod -aG system_guests guest
 # Install basic packages
 
 sudo pacman -Syu
-sudo pacman -S libxcb xcb-util xcb-util-wm xcb-util-keysyms gdm xorg xorg-xinit polybar gnome-terminal rofi feh tmux open-vm-tools net-tools base-devel --noconfirm
+sudo pacman -S libxcb xcb-util xcb-util-wm xcb-util-keysyms gdm xorg xorg-xinit polybar gnome-terminal rofi feh tmux open-vm-tools net-tools base-devel zsh --noconfirm
 
 # Install Yay
 
@@ -87,6 +87,21 @@ chmod u+x ~/.config/polybar/scripts/*
 cd ~
 sudo rm -r bspwm fonts rofi-themes-collection sxhkd lnxdep yay
 
+# Install powerlevel10k
+
+yay -S --noconfirm zsh-theme-powerlevel10k-git
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
+echo 'source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+cp $dir/zshrc ~/.zshrc
+echo 'source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh' >> ~/.zshrc
+echo 'source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh' >> ~/.zshrc
+cp $dir/p10k.zsh ~/.p10k.zsh
+sudo usermod -s $(which zsh) system
+
+
+
+
 # Deploy main directory
 
 mkdir -p {doc,psw,tmp,dwn,log,msc,sft,rep}
@@ -96,9 +111,9 @@ mkdir -p {doc,psw,tmp,dwn,log,msc,sft,rep}
 yay -Y --gendb
 yay -Syu
 yay -Syu --devel
-yay -S snapd
-yay -S bitwarden
-yay -S brave-browser
+yay -S --noconfirm snapd
+yay -S --noconfirm bitwarden
+yay -S --noconfirm brave-browser
 
 # Enable Services
 
