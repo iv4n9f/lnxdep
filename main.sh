@@ -43,7 +43,7 @@ sudo usermod -aG system_guests guest
 # Install basic packages
 
 sudo pacman -Syu
-sudo pacman -S libxcb xcb-util xcb-util-wm xcb-util-keysyms gdm xorg xorg-xinit polybar kitty rofi feh tmux open-vm-tools net-tools base-devel zsh neofetch --noconfirm
+sudo pacman -S libxcb xcb-util xcb-util-wm xcb-util-keysyms gdm xorg xorg-xinit polybar kitty rofi feh tmux net-tools base-devel zsh neofetch --noconfirm
 
 # Install Yay
 
@@ -97,6 +97,13 @@ sudo usermod -s $(which zsh) system
 cp $dir/zshrc ~/.zshrc
 cp $dir/p10k.zsh ~/.p10k.zsh
 
+# Install vmware-tools
+
+cd ~
+git clone https://github.com/rasa/vmware-tools-patches.git
+cd vmware-tools-patches
+sudo ./patched-open-vm-tools.sh
+cd ~
 
 # Deploy main directory
 
